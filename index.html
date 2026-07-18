@@ -18,13 +18,13 @@
     <h1>Anuj Kale</h1>
     <p class="role">Mechanical Engineer &mdash; Robotics</p>
     <nav class="links">
-      <a href="mailto:anujskale@gmail.com">email</a>
+      <a href="mailto:anujskale@gmail.com">Email</a>
       <span class="dot">&middot;</span>
-      <a href="https://github.com/askyncme" target="_blank" rel="noopener">github</a>
+      <a href="https://github.com/askyncme" target="_blank" rel="noopener">Github</a>
       <span class="dot">&middot;</span>
-      <a href="www.linkedin.com/in/anuj-kale-6725322" target="_blank" rel="noopener">linkedin</a>
+      <a href="www.linkedin.com/in/anuj-kale-672532291" target="_blank" rel="noopener">Linkedin</a>
       <span class="dot">&middot;</span>
-      <a href="resume.pdf" target="_blank" rel="noopener">resume</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
   </header>
 
@@ -46,7 +46,7 @@ aerial robotics.
         <h3>Omokai</h3>
         <span class="tag-status">status: Work in progress</span>
       </div>
-      <p class="project-meta">Solo developer &middot; technical assignment</p>
+      <p class="project-meta">Solo developer &middot; Technical assignment</p>
       <p class="project-body">
         Omokai closes the loop from spoken intent to physical robot motion. A natural-language 
 instruction is parsed by an LLM into a structured mission, checked against a deterministic safety 
@@ -55,29 +55,23 @@ make an LLM output JSON, it was to build the guardrails that make it safe to act
       </p>
       <p class="project-decision">
         <span class="label">KEY DECISIONS &mdash;</span>Chose Groq (llama3-8b-8192) over local inference. Ollama technically worked but was 
-unusably slow on CPU-only hardware, and other hosted providers hit access or deprecation 
-issues. Groq's free tier gave the best latency-to-reliability tradeoff, the priority was a model 
-that responds consistently, not the most capable one available.
-Put a hard validation layer between the LLM and the executor. The LLM is treated as 
+unusably slow on CPU-only hardware. Groq's free tier gave the best latency-to-reliability tradeoff, the priority was a model 
+that responds consistently. Put a hard validation layer between the LLM and the executor. The LLM is treated as 
 untrusted input. Nothing reaches Nav2 without first passing schema checks and safety 
 bounds, this was a deliberate design choice, not an afterthought, because an LLM 
 hallucinating a bad waypoint should fail loudly before it ever reaches a motor command.
-Diagnosed and fixed a Nav2 activation hang at its root cause. The stall traced back to a 
-slam_toolbox lifecycle dependency blocking Nav2's localizer check. Rather than papering 
-over it with retries or timeouts, the check itself was bypassed once the actual dependency 
-was identified, fixing the cause, not the symptom.
       </p>
       <p class="project-links">
-        <a href="#" target="_blank" rel="noopener">https://github.com/askyncme/omokai_ws</a>
+        <a href="https://github.com/askyncme/omokai_ws" target="_blank" rel="noopener">Omokai Repo</a>
       </p>
     </article>
 
     <article class="project">
       <div class="project-head">
         <h3>XLR8</h3>
-        <span class="tag-status">status: voice pipeline complete</span>
+        <span class="tag-status">status: voice pipeline complete, fine tuning drive system</span>
       </div>
-      <p class="project-meta">Solo developer &middot; voice-driven robotics assistant</p>
+      <p class="project-meta">Solo developer &middot; Voice-driven robotics assistant</p>
       <p class="project-body">
         A modular voice-assistant system built on ROS&nbsp;2, where independent nodes handle
         speech recognition, intent classification, LLM-based reasoning, and speech synthesis,
@@ -86,13 +80,13 @@ was identified, fixing the cause, not the symptom.
         robot-action execution.
       </p>
       <p class="project-decision">
-        <span class="label">key decision &mdash;</span> implemented speech output as a
+        <span class="label">Key Decision &mdash;</span> Implemented speech output as a
         cancellable ROS&nbsp;2 action rather than a fire-and-forget service, enabling
         real-time barge-in: the system stops talking the instant the user starts speaking
-        again.
+        again. Allowed Robot Motion by voice commands through micro-ros interface.
       </p>
       <p class="project-links">
-        <a href="#" target="_blank" rel="noopener">code</a>
+        <a href="https://github.com/askyncme/mavis-autonomous-lab-assistan" target="_blank" rel="noopener">XLR8 Repo</a>
       </p>
     </article>
 
@@ -110,7 +104,7 @@ was identified, fixing the cause, not the symptom.
         field testing: 2&nbsp;kg payload capacity, 25-minute flight endurance.
       </p>
       <p class="project-links">
-        <a href="#" target="_blank" rel="noopener">paper (pg. 164)</a>
+        <a href="https://sensorsportal.com/DOWNLOADS/DAUS_2026_Proceedings.pdf" target="_blank" rel="noopener">Research Paper (pg. 164)</a>
       </p>
     </article>
 
@@ -126,29 +120,35 @@ was identified, fixing the cause, not the symptom.
         expressive movements.
       </p>
       <p class="project-decision">
-        <span class="label">key decision &mdash;</span> used predefined gait sequences with
-        synchronized joint trajectories, prioritizing repeatable locomotion over
-        computationally intensive approaches like inverse kinematics, to stay within the
-        Arduino Nano's headroom.
+        <span class="label">Key Decision &mdash;</span> Selected a 12-DOF (3 DOF per leg) architecture to enable natural leg articulation while 
+keeping the control system lightweight enough for an Arduino Nano.
+Developed predefined gait sequences with synchronized joint trajectories, prioritizing 
+repeatable locomotion and smooth coordination over computationally intensive approaches 
+such as inverse kinematics.
       </p>
     </article>
 
     <article class="project">
       <div class="project-head">
         <h3>Multirotor UAV</h3>
-        <span class="tag-status">status: All India Rank 11</span>
+        <span class="tag-status">status: All India Rank 11 in Phase-I</span>
       </div>
       <p class="project-meta">Electronics Head &middot; SAE AeroTHON, Team Squadrone</p>
       <p class="project-body">
-        Designed and integrated the electronics architecture for a multirotor UAV built for
-        the SAE AeroTHON competition: flight controller, companion computer, sensors, power
-        distribution, and communication interfaces, for autonomous navigation, aerial
-        surveying, and payload delivery.
+        Designed and integrated the electronics architecture for a multirotor UAV developed for the SAE 
+AeroTHON competition. Responsible for selecting and integrating onboard hardware, including 
+the flight controller, companion computer, sensors, power distribution, and communication 
+interfaces, while collaborating with the mechanical and software teams to build an autonomous 
+aerial platform. The UAV was designed to perform autonomous navigation, aerial surveying, 
+object detection, and payload delivery as part of the competition mission.
       </p>
       <p class="project-decision">
-        <span class="label">key decision &mdash;</span> paired a Pixhawk-based flight
-        controller with a Raspberry Pi companion computer, separating real-time flight control
-        from high-level autonomy.
+        <span class="label">Key Decision &mdash;</span> Selected a Pixhawk-based flight control architecture paired with a Raspberry Pi companion 
+computer, separating real-time flight control from high-level autonomy. This enabled 
+reliable flight performance while providing sufficient computing capability for perception 
+and mission logic.
+Chose system components by balancing payload capacity, flight endurance, and onboard 
+processing requirements to meet the competition objectives.
       </p>
     </article>
 
@@ -157,23 +157,29 @@ was identified, fixing the cause, not the symptom.
         <h3>PLC Clamp-Declamp System</h3>
         <span class="tag-status">status: complete</span>
       </div>
-      <p class="project-meta">Mechanical / industrial automation project</p>
+      <p class="project-meta">Mechanical / Industrial Automation Project</p>
       <p class="project-body">
-        Designed and programmed a PLC-controlled pneumatic clamp-declamp system on a
-        Mitsubishi FX3G-14M, controlling a double-acting cylinder through a 5/3
-        double-solenoid valve with push-button inputs and proximity sensor feedback.
+        Designed and programmed a PLC-controlled pneumatic clamp–declamp system using a 
+Mitsubishi FX3G-14M PLC. The system controls the extension and retraction of a double
+acting pneumatic cylinder through a 5/3 double-solenoid directional control valve, integrating 
+push-button inputs and proximity sensor feedback for reliable operation.
       </p>
     </article>
 
   </section>
 
   <section class="skills">
-    <h2>Skills</h2>
-    <p class="skills-line">
-      ROS&nbsp;2 &middot; Nav2 &middot; Gazebo &middot; micro-ROS &middot; Python &middot; C++
-      &middot; SolidWorks &middot; GD&amp;T &middot; KiCad &middot; PLC / Ladder Logic
-    </p>
-  </section>
+  <h2>Skills</h2>
+  <p class="skills-line">
+    ROS&nbsp;2 &middot; Gazebo &middot; RViz &middot; Nav2 &middot; micro-ROS
+    &middot; PX4 &middot; ArduPilot &middot; Mission Planner 
+    &middot; Python &middot; OpenCV &middot; YOLO &middot; Embedded C &middot; Basic C++
+    &middot; Arduino &middot; ESP32 &middot; Raspberry Pi
+    &middot; Computer Vision &middot; Sensor Integration
+    &middot; Mitsubishi FX3G PLC &middot; Ladder Logic
+    &middot; SolidWorks &middot; 3D Printing
+  </p>
+</section>
 
   <footer class="site-footer">
     <p>Last updated July 2026. Site adapted from a template shared by Jon Barron.</p>
